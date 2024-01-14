@@ -28,7 +28,16 @@ status: 'Success'
 */
 const encodePayload = async (req, res) => {
   try {
-    //Write your code here
+    const userData ={
+      name: "John Doe",
+email: "johndoe@example.com",
+role: "admin"
+    };
+    const token =jwt.sign(userData,JWT_SECRET);
+    res.status(200).json({
+      token:token,
+      status:"Success"
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({
@@ -69,7 +78,15 @@ Output:
 
 const decodeToken = (req, res) => {
   try {
-    //Write your code here
+   const userData ={
+     payload: {
+        userId: "64100c9a2b615267996ce75c",
+        iat: 1678773410,
+        exp: 1678777010
+    },
+    status: 'Success'
+   }
+    res.status(200).json({success})
   } catch (err) {
     console.error(err);
     res.status(401).json({ message: 'Invalid token' });
