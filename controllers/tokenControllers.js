@@ -30,7 +30,7 @@ const encodePayload = async (req, res) => {
   try {
     const userData ={
       name: "John Doe",
-email: "johndoe@example.com",
+email: "test_user@example.com",
 role: "admin"
     };
     const token =jwt.sign(userData,JWT_SECRET);
